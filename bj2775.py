@@ -5,9 +5,14 @@ for i in range(T):
 	K[i] = int(input())
 	N[i] = int(input())
 
-for idx in range(T):
-	dp = [[0] * (K[i]) for _ in range(N[i] + 1)]
-	dp[0][0] = 0
-	for i in range(N[i]):
-		dp[0][i] = i
-	for i in range(N())
+for i in range(T):
+	dp = [[0] * (N[i] + 1) for _ in range(K[i] + 1)]
+	for j in range(K[i] + 1):
+		dp[j][0] = 0
+		dp[j][1] = 1
+	for k in range(N[i] + 1):
+		dp[0][k] = k
+	for m in range(1, K[i] + 1):
+		for n in range(2, N[i] + 1):
+			dp[m][n] = dp[m-1][n] + dp[m][n-1]
+	print(dp[K[i]][N[i]])
